@@ -1,13 +1,26 @@
-﻿// Задача №7
-// Напишите программу, которая принимает на вход трёхзначное число
-//  и на выходе показывает последнюю цифру этого числа.
+﻿// Напишите программу, которая на вход принимает одно число (N), 
+// а на выходе показывает все целые числа в промежутке от -N до N.
 
 Console.Write("Введите число: ");
-var number = Convert.ToInt32(Console.ReadLine());
 
-if (number > 99 && number <1000)
+string? inputLine = Console.ReadLine();
+
+if(inputLine!=null)
 {
-    Console.WriteLine("Последняя цифра числа: "+number%10);
+
+int inputNumber = int.Parse(inputLine);
+
+int startNumber = inputNumber*(-1);
+
+string outline = string.Empty;
+
+    while(startNumber < inputNumber)
+    {
+        outline = outline + startNumber + ", ";
+        startNumber++;
+    }
+
+    outline = outline + inputNumber;
+
+    Console.WriteLine(outline);
 }
-else
-Console.WriteLine("Введено не то число");
