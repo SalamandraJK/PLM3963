@@ -18,13 +18,13 @@ int SecondNum = rndNumber%10;
 // Определяем и вывлдим результат сравнения двух полученных чисел
 if(FirstNum > SecondNum)
 {
-    Console.WriteLine("Первое число больше: " + FirstNum);
-    Console.WriteLine("Второго:" + SecondNum);    
+    Console.Write($"Первое число {FirstNum} больше ");
+    Console.WriteLine($"Второго {SecondNum}");    
 }
 else
 {
-    Console.WriteLine("Второе число больше: " + SecondNum) ;
-    Console.WriteLine("Первого: " + FirstNum);
+    Console.Write($"Второе число {SecondNum} больше ") ;
+    Console.WriteLine($"Первого {FirstNum}");
 }
 
 
