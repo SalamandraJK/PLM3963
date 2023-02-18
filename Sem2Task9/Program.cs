@@ -15,7 +15,7 @@ int FirstNum = rndNumber/10;
 // Получаем второе цифру числа, остатком от деления
 int SecondNum = rndNumber%10;
 
-// Определяем большее число
+// Определяем и вывлдим результат сравнения двух полученных чисел
 if(FirstNum > SecondNum)
 {
     Console.WriteLine("Первое число больше: " + FirstNum);
@@ -30,15 +30,17 @@ else
 
 // Второй варинт решения задачи
 
-// char[] digits = numSintezator.Next(10,100).ToString().ToCharArray();
-// Console.WriteLine(digits);
-// int firstNum = ((int)digits[0])-48;
-// int secondNum = ((int)digits[1])-48;
+// Получаем случайное число и превращаем его в массив
+char[] digits = numSintezator.Next(10,100).ToString().ToCharArray();
+// Выводим полученный
+Console.WriteLine(digits);
+// 
+int firstNum = ((int)digits[0])-48;
+int secondNum = ((int)digits[1])-48;
+// Записываем тернарный компилятор для получения результата сравнения
+int rezultNumber = (firstNum>secondNum)?rezultNumber=firstNum:rezultNumber=secondNum;
+// Выводим полученный результат
+Console.WriteLine(rezultNumber);
 
-// int rezultNumber = (firstNum>secondNum)?rezultNumber=firstNum:rezultNumber=secondNum;
 
-// Console.WriteLine(rezultNumber);
-
-
-// Третий вариант решения зщадачи
 
