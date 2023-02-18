@@ -1,2 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Задача, для нахождения второго числа, у введненго техзначного числаeъ
+
+// Задаём структуру, которая генерирует слдучайные числа
+System.Random numSintezator = new System.Random();
+
+// Получаем случайное число от 100 до 999
+int rndNumber = numSintezator.Next(100,999);
+// Выводим полученное число
+Console.WriteLine($"Исходное число: {rndNumber}");
+// Вводин переменную в которую будем записывать результат задачи
+int SecondNum = (rndNumber/10)%10;
+// Вывод полученного резхультата
+Console.WriteLine($"Итоговый результат: {SecondNum}");
