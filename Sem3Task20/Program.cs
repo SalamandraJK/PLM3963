@@ -28,7 +28,7 @@ int y2 = ReadData("Введите координату y точки В: ");
 
 double res = CalcLen2D(x1, y1, x2, y2);
 
-PrintData($"Расстояние между точками А и В: {res}");
+PrintData($"Расстояние между точками А и В: ", res);
 
 // int quarter = ReadData("Введите координату z1:");
 // int quarter = ReadData("Введите координату z2:");
