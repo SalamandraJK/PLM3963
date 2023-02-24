@@ -10,13 +10,11 @@ int ReadData(string line)
     // Возвращаем полученное значение
     return numberP;
 }
-
 // Вводим метод вывода получаемого результата
 void PrintData(string line)
 {
     Console.WriteLine(line);
 }
-
 // Вводим метод, осуществляющий подсчёт колличества цифр, в веденном числе.
 int DigitSum(int num)
 {
@@ -30,7 +28,6 @@ int DigitSum(int num)
     // Возвращаем полученный результат.
     return res;
 }
-
 // Присваеваем внасимое пользователем значение в введенную переменную number.
 int number = ReadData("Введите число : ");
 
