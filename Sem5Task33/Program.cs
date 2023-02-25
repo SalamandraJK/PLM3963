@@ -40,7 +40,7 @@ int SearchEleme(int[] arr, int elem)
     int res = -1;
     for(int i=0; i<arr.Length; i++)
     {
-        if(arr[i] == elem);
+        if(arr[i] == elem)
         {
             res = i; 
             break;
@@ -52,7 +52,7 @@ int SearchEleme(int[] arr, int elem)
 int[] testArr = Gen1DArr(12, -9, 9);
 Print1DArr(testArr);
 Console.Write("Введите элемент: ");
-int elem = int.Parse(Console.ReadLine());
+int elem = int.Parse(Console.ReadLine( ));
 int res = SearchEleme(testArr, elem);
 
 if(res > 0)
