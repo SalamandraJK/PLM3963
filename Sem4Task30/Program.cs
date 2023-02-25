@@ -1,13 +1,4 @@
-﻿
-
-// Вводим метод для приема данных от пользователя
-// int ReadData(string msg)
-// {
-//     Console.WriteLine(msg);
-//     return int.Parse(Console.ReadLine() ?? "0");
-// }
-
-// Вводим метод, заполняющий массив (генерация)
+﻿// Вводим метод, заполняющий массив (генерация)
 int[] Gen1DArr(int len, int min, int max)
 {
     Random rnd = new Random();

@@ -2,58 +2,49 @@
 // Напишите программу, которая задаёт массив из N элементов и выводит их на экран.
 // Ввести с клавиатуры длину массива и диапазон значений элементов.
 
-// Вводим метод, заполняющий массив (генерация)
-int[] Gen1DArr(int len, int min, int max)
+// Добавляем метод принимающий данные от пользователя
+int ReadData(string line)
 {
-    Random rnd = new Random();
-    int[] arr = new int[len];
-
-    for(int i=0; i<arr.Length; i++)
-    {
-        arr[i] = rnd.Next(min, max+1);
-    }
-    return arr;
+    // Вывод сообщения
+    Console.Write(line);
+    // Считываем данные от пользователя
+    int numberP = int.Parse(Console.ReadLine()??"0");
+    // Возвращаем полученное значение
+    return numberP;
 }
 
-// Вводин метод, который печатает одномерный массив
+// // Вводим метод вывода получаемого результата
+// void PrintData(string line)
+// {
+//     Console.WriteLine(line);
+// }
+
+
+int[] Gen1DArr(int len, int min, int max)
+{
+    int[] arr = new int[len];
+    for (int i = 0; i < len; i++)
+    {
+        arr[i] = new Random().Next(min, max + 1);
+    }
+
+    return arr;
+}  //prints 1D array into consle
 void Print1DArr(int[] arr)
 {
     Console.Write("[");
-    for(int i=0; i<arr.Length-1; i++)
-    {
-        Console.Write(arr[i] + ", ");
-    }
-    Console.Write(arr[arr.Length-1]);
-    Console.WriteLine("]");
-}
-// 
-void PrintData(string res, int value)
-{
-    Console.WriteLine(res + value);
-}
-// 
-(int pozitiv, int negativ) NegPosSum(int[] arr)
-{
-    int pozitiv = 0;
-    int negativ = 0;
-
-    for(int i=0; i<arr.Length; i++)
-    {
-        if(arr[i]>0)
-        {
-            pozitiv += arr[i];
-        }
-        else
-        {
-            negativ += arr[i];
-        }
-    }
-    return (pozitiv, negativ);
+     for (int i = 0; i < arr.Length - 1; i++) 
+     Console.Write($"{arr[i]}, ");
+    Console.WriteLine($"{arr[arr.Length - 1]}]");
 }
 
-int[] testArr = Gen1DArr(12,-9,9);
-Print1DArr(testArr);
+// Присваеваем внасимое пользователем значение в введенную переменную numberA.
+int LenArr = ReadData("Введите длинну массива: ");
+int minNum = ReadData("Введите минимальное значение элемента: ");
+int maxNum = ReadData("Введите максимальное значение элемента: ");
 
-(int pozit, int negat) result = NegPosSum(testArr);
-PrintData("Сумма положительных значений: ", result.pozit);
-PrintData("Сумма отрицательных значений: ", result.negat);
+// Вводим переменную resSubtrac и прередаём в нее значение, получаемое в методе Subtraction
+int[] resSubtrac = Gen1DArr(LenArr,minNum,maxNum);
+
+
+Print1DArr(Gen1DArr(LenArr, minNum, maxNum));
