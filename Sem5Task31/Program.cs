@@ -30,8 +30,8 @@ void Print1DArr(int[] arr)
     {
         Console.Write(arr[i] + ", ");
     }
-    Console.Write(arr[arr.Length-1]);
 
+    Console.Write(arr[arr.Length-1]);
     Console.WriteLine("]");
 }
 
