@@ -13,13 +13,6 @@ int ReadData(string line)
     return numberP;
 }
 
-// // Вводим метод вывода получаемого результата
-// void PrintData(string line)
-// {
-//     Console.WriteLine(line);
-// }
-
-
 int[] Gen1DArr(int len, int min, int max)
 {
     int[] arr = new int[len];
@@ -29,7 +22,7 @@ int[] Gen1DArr(int len, int min, int max)
     }
 
     return arr;
-}  //prints 1D array into consle
+}  //
 void Print1DArr(int[] arr)
 {
     Console.Write("[");
@@ -38,12 +31,12 @@ void Print1DArr(int[] arr)
     Console.WriteLine($"{arr[arr.Length - 1]}]");
 }
 
-// Присваеваем внасимое пользователем значение в введенную переменную numberA.
+// Присваеваем внасимое пользователем значение в введенную переменную.
 int LenArr = ReadData("Введите длинну массива: ");
 int minNum = ReadData("Введите минимальное значение элемента: ");
 int maxNum = ReadData("Введите максимальное значение элемента: ");
 
-// Вводим переменную resSubtrac и прередаём в нее значение, получаемое в методе Subtraction
+// Вводим переменную resSubtrac и прередаём в нее значение, получаемое в методе Gen1DArr
 int[] resSubtrac = Gen1DArr(LenArr,minNum,maxNum);
 
 
