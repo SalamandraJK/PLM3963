@@ -12,6 +12,14 @@
 // Вводим метод, заполняющий массив (генерация)
 int[] Gen1DArr(int len, int min, int max)
 {
+    // Корректировка входных данных
+    if(min<max)
+    {
+        int buf = min;
+        min = max;
+        min = buf;
+    }
+
     Random rnd = new Random();
     int[] arr = new int[len];
     for(int i=0; i<arr.Length; i++)
@@ -25,12 +33,10 @@ int[] Gen1DArr(int len, int min, int max)
 void Print1DArr(int[] arr)
 {
     Console.Write("[");
-
     for(int i=0; i<arr.Length-1; i++)
     {
         Console.Write(arr[i] + ", ");
     }
-
     Console.Write(arr[arr.Length-1]);
     Console.WriteLine("]");
 }
@@ -41,7 +47,6 @@ void PrintData(string res, int value)
 }
 
 // 
-
 (int pozitiv, int negativ) NegPosSum(int[] arr)
 {
     int pozitiv = 0;
