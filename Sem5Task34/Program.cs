@@ -47,8 +47,52 @@ int EverNum(int[] arr)
     return (SumEven);
 }
 
+// Метод, для сортировки масси пузырьком
+// void BubbleSort(int[] arr)
+// {
+// for (int i = 0; i < arr.Length; i++)
+// {
+//     for (int j = i + 1; j < arr.Length; j++)
+//     {
+//         if (arr[i] > arr[j])
+//            {
+//             int temp = arr[i];
+//             arr[i] = arr[j];
+//             arr[j] = temp;
+//             }                   
+//     }            
+// }
+// }
+void BubbleSort(int[] arr)
+{
+int temp = 0;
+Console.Write("[");
+for (int write = 0; write < arr.Length; write++) {
+    for (int sort = 0; sort < arr.Length - 1; sort++) {
+        if (arr[sort] > arr[sort + 1]) {
+            temp = arr[sort + 1];
+            arr[sort + 1] = arr[sort];
+            arr[sort] = temp;
+        }
+    }
+}
+
+for (int i = 0; i < arr.Length; i++)
+    Console.Write(arr[i] + " ");
+
+Console.ReadKey();
+Console.WriteLine("]");
+}
+
+Console.WriteLine(" ");
 int[] testArr = Gen1DArr(10, 100, 999);
 Print1DArr(testArr);
+Console.WriteLine(" ");
 
 int result = EverNum(testArr);
 PrintData("Колличество четных значений: ", result);
+Console.WriteLine(" ");
+
+Console.WriteLine("Отсортированный методои Пузырька массив: ");
+Console.WriteLine(" ");
+BubbleSort(testArr);
