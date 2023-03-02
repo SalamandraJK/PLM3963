@@ -40,7 +40,7 @@ double MaxMin(double[] arr)
 for(int i=0; i<arr.Length-1; i++)
 {
     if(arr[i]>maxNum) maxNum = arr[i];
-    if(arr[i]>minNum) minNum = arr[i];
+    if(arr[i]<minNum) minNum = arr[i];
 }
 return maxNum - minNum;
 }
