@@ -28,16 +28,16 @@ void Print1DArr(int[] arr)
 }
 
 // Метод, переварачивающий заданный массив
-void SwapArray(int[] arr)
-{
-    int BufElem = 0;
-    for( int i = 0; i < arr.Length/2; i++)
-    {
-        BufElem = arr[i];
-        arr[i] = arr[arr.Length-1-i];
-        arr[arr.Length-1-i] = BufElem;
-    }
-}
+// void SwapArray(int[] arr)
+// {
+//     int BufElem = 0;
+//     for( int i = 0; i < arr.Length/2; i++)
+//     {
+//         BufElem = arr[i];
+//         arr[i] = arr[arr.Length-1-i];
+//         arr[arr.Length-1-i] = BufElem;
+//     }
+// }
 
 // Метод, переварачивающий заданный массив
 int[] SwapNewArray(int[] arr)
