@@ -1,8 +1,4 @@
-﻿// Задача №49
-// Задайте двумерный массив. Найдите элементы, 
-// у которых оба индекса чётные,
-// и замените эти элементы на их квадраты.
-
+﻿// See https://aka.ms/new-console-template for more information
 
 // Метод, для приема данных
 int ReadData(string message)
@@ -12,10 +8,10 @@ int ReadData(string message)
 }
 
 // Метод, для печати принятых данных
-// void PrintData(string msg)
-// {
-//     Console.WriteLine(msg);
-// }
+void PrintData(int msg)
+{
+    Console.WriteLine(msg);
+}
 
 // Вводим метод, заполняющий массив (генерация)
 int[,] Gen2DArr( int min, int max, int RowCount, int ColCount)
@@ -40,6 +36,7 @@ int[,] Gen2DArr( int min, int max, int RowCount, int ColCount)
     }
     return binarray;
 }
+
 
 // Вводин метод, который печатает одномерный массив
 void Print2DArr(int[,] arr)
@@ -66,28 +63,31 @@ void Print2DArr(int[,] arr)
     }
 }
 
-// Метод для записи массива, в котором содеражаться значения с четными индексами,
-// из сгенерированного ранее массива
-void Update2DArr(int[,] arr)
+// Метод для посчета суммы значений на главное диагонали сгенерированного массива
+int CountMainDiag(int[,] arr)
 {
-    for(int i = 0; i < arr.GetLength(0); i=i+2)
+    int result = 0;
+    // Вводим проверку на соотношение строк и столбйов в сгенерированном массиве
+    // Выбираем максимальный размер массива с одинаковым соотношением строк и столбцов
+    int min = arr.GetLength(0);
+    if(arr.GetLength(0)>arr.GetLength(1)) min = arr.GetLength(1);
+
+    for(int j=0; j<min; j++)
     {
-        for(int j=0; j<arr.GetLength(1); j=j+2)
-        {      
-            arr[i,j] *= arr[i,j];
-        }
-    }    
+        result = result + arr[j,j];
+    }
+    return result;
 }
 
 // Ввод параметров массива(строки с стлобцы)
 int Row = ReadData("Введите колличество строк: ");
 int Column = ReadData("Введите колличество столбцов: ");
 // Генерация массива
-int[,] arr2D = Gen2DArr(10, 99, Row, Column);
+int[,] arr2D = Gen2DArr(10, 99,Row, Column);
 // Вывод(печать) массива
 Print2DArr(arr2D);
 Console.WriteLine(" ");
-// Генерация массива с выполненым условием
-Update2DArr(arr2D);
-// Вывод(печать) массива
-Print2DArr(arr2D);
+// Вывод полученного результата
+Console.Write("Сумма значений на главное диагонали = ");
+PrintData(CountMainDiag(arr2D));
+
