@@ -20,6 +20,7 @@ int ReadData(string message)
 // Вводим метод, заполняющий массив (генерация)
 int[,] Gen2DArr( int min, int max, int RowCount, int ColCount)
 {
+    // Проверка входных данных массива
     int buf;
     if (min > max)
     {
@@ -27,6 +28,7 @@ int[,] Gen2DArr( int min, int max, int RowCount, int ColCount)
         min = max;
         max = buf;
     }
+    // Генерация двумерного массива
     int[,] binarray = new int[RowCount, ColCount];
     System.Random numSintezator = new System.Random();
     for (int i = 0; i < RowCount; i++)

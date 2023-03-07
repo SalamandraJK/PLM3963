@@ -26,9 +26,7 @@ int[,] Gen2DArr(int countRow, int countColumn, int min, int max)
         max = buf;
     }
 
-    // Random rnd = new Random();
     int[,] arr = new int[countRow,countColumn];
-
     // 2 цикла для прохлждения по строкам и столбцам
     for(int i=0; i<countRow; i++)
     {
@@ -55,7 +53,7 @@ void Print2DArr(int[,] arr)
     // Console.Write("[");
     for(int i=0; i<arr.GetLength(0); i++)
     {
-        for(int j=0; j<arr.GetLength(0); j++)
+        for(int j=0; j<arr.GetLength(1); j++)
         {
             Console.ForegroundColor = color[new Random().Next(1,1)];
             Console.Write(arr[i,j] + "\t");
