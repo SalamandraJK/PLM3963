@@ -54,7 +54,7 @@ int res = SearchEleme(testArr, elem);
 
 if(res > 0)
 {
-Console.WriteLine("Эелемент находится в массиве с индексом: " +res);
+    Console.WriteLine("Эелемент находится в массиве с индексом: " +res);
 }
 else
 {
