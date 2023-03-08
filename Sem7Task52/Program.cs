@@ -68,7 +68,7 @@ void Print2DArr(int[,] arr)
 }
 
 // Вводин метод, который печатает одномерный массив
-void Print1DArr(int[] arr)
+void Print1DArr(double[] arr)
 {
     Console.Write("[");
 
@@ -81,9 +81,9 @@ void Print1DArr(int[] arr)
 }
 
 // Метод для посчета среднего арифметического значений каждого столбца сгенерированного массива
-int[] ColMean2DArr(int[,] arr)
+double[] ColMean2DArr(int[,] arr)
 {
-    int[] MeanArr = new int[arr.GetLength(1)];
+    double[] MeanArr = new double[arr.GetLength(1)];
     for(int j=0; j<arr.GetLength(1); j++)
     {
         for(int i=0; i<arr.GetLength(0); i++)
