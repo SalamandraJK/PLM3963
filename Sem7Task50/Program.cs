@@ -59,7 +59,7 @@ void Print2DArr(int[,] arr)
     }
 }
 
-// Вводим метод для ответа на вопрос задачи
+// Вводим метод для проверки наличия искомого элемента в сгенерированном массиве
 bool SearchEleme(int[,] arr, int row, int col)
 {
     if(arr.GetLength(0)>row && arr.GetLength(1)>col)
