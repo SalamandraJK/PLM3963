@@ -63,21 +63,21 @@ void Print2DArr(int[,] arr)
 void BubbleSort(int[,] arr)
 {
 int temp = 0;
-int row = 0;
-while ( row < arr.GetLength(0)) 
+for (int write = 0; write < arr.Length; write++)
 {
-    for(int col = 0; col <arr.GetLength(1)-1; col++) 
+    for(int i = 0; i < arr.GetLength(0); i++) 
     {
-        if (arr[row,col] > arr[row,col + 1]) 
+        for(int j = 0; j < arr.GetLength(1)-1; j++) 
         {
-            temp = arr[row,col + 1];
-            arr[row,col + 1] = arr[row,col];
-            arr[row,col] = temp;
+            if (arr[i,j] < arr[i,j + 1]) 
+            {
+                temp = arr[i,j + 1];
+                arr[i,j + 1] = arr[i,j];
+                arr[i,j] = temp;
+            }
         }
     }
-     row++;
 }
-
     for(int i=0; i<arr.GetLength(0); i++)
     {
         for(int j=0; j<arr.GetLength(1); j++)
@@ -100,4 +100,4 @@ Console.WriteLine(" ");
 Console.WriteLine("Отсортированный методои Пузырька массив: ");
 Console.WriteLine(" ");
 BubbleSort(arr2D);
-// Print2DArr(arr2D);
+Console.WriteLine(" ");
