@@ -47,6 +47,7 @@ int EverNum(int[] arr)
     return (SumEven);
 }
 
+// Метод сортировки пузырьком
 void BubbleSort(int[] arr)
 {
 int temp = 0;

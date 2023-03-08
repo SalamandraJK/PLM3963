@@ -1,6 +1,6 @@
-﻿// Задача №53
+﻿// Задача 54: 
 // Задайте двумерный массив. Напишите программу, 
-// которая поменяет местами первую и последнюю строку массива.
+// которая упорядочит по убыванию элементы каждой строки двумерного массива.
 
 // Метод, для приема данных
 int ReadData(string message)
@@ -10,29 +10,28 @@ int ReadData(string message)
 }
 
 // Вводим метод, заполняющий массив (генерация)
-int[,] Gen2DArr( int min, int max, int RowCount, int ColCount)
+int[,] Gen2DArr(int countRow, int countColumn, int min, int max)
 {
     // Проверка входных данных массива
-    int buf;
-    if (min > max)
+    if(min > max)
     {
-        buf = min;
+        int buf = min;
         min = max;
         max = buf;
     }
-    // Генерация двумерного массива
-    int[,] binarray = new int[RowCount, ColCount];
-    System.Random numSintezator = new System.Random();
-    for (int i = 0; i < RowCount; i++)
+
+    Random rnd = new Random();
+    int[,] arr = new int[countRow,countColumn];
+
+    // 2 цикла для прохлждения по строкам и столбцам
+    for(int i=0; i<countRow; i++)
     {
-        for (int j = 0; j < ColCount; j++)
+        for(int j=0; j<countColumn; j++)
         {
-        
-            binarray[i,j] = numSintezator.Next(min, max);
-            
+        arr[i,j] = rnd.Next(min, max + 1);
         }
     }
-    return binarray;
+    return arr;
 }
 
 // Вводин метод, который печатает одномерный массив
@@ -53,35 +52,52 @@ void Print2DArr(int[,] arr)
         for(int j=0; j<arr.GetLength(1); j++)
         {
             Console.ForegroundColor = color[new Random().Next(2,2)];
-            Console.Write(arr[i,j] + "\t");
+            Console.Write(arr[i,j] + " ");
             Console.ResetColor();
         }
         Console.WriteLine();
     }
 }
 
-// Метод для перемещения значений первой строки в последнюю строку и наоборот.
-void Changr2DArr(int[,] matr)
+// Метод сортировки пузырьком
+void BubbleSort(int[,] arr)
 {
-    int temp = 0;
-    for(int i = 0; i < matr.GetLength(0); i++)
+int temp = 0;
+int row = 0;
+while ( row < arr.GetLength(0)) 
+{
+    for(int col = 0; col <arr.GetLength(1)-1; col++) 
     {
-        temp = matr[0,i];
-        matr[0,i] = matr[matr.GetLength(0)-1, i];
-        matr[matr.GetLength(0)-1, i] = temp;
+        if (arr[row,col] > arr[row,col + 1]) 
+        {
+            temp = arr[row,col + 1];
+            arr[row,col + 1] = arr[row,col];
+            arr[row,col] = temp;
+        }
+    }
+     row++;
+}
+
+    for(int i=0; i<arr.GetLength(0); i++)
+    {
+        for(int j=0; j<arr.GetLength(1); j++)
+        {
+            Console.Write(arr[i,j] + " ");
+        }
+        Console.WriteLine();
     }
 }
 
 // Ввод параметров массива(строки с стлобцы)
-int m = ReadData("Введите колличество строк: ");
-int n = ReadData("Введите колличество столбцов: ");
+int Row = ReadData("Введите колличество строк: ");
+int Column = ReadData("Введите колличество столбцов: ");
 // Генерация массива
-int[,] arr2D = Gen2DArr(10, 99, m, n);
+int[,] arr2D = Gen2DArr(Row, Column, 1, 9);
 // Вывод(печать) массива
-Console.WriteLine("Сгенерированный массив: ");
 Print2DArr(arr2D);
-// Вывод полученного массива после выполнения задачи
+Console.WriteLine(" "); 
+
+Console.WriteLine("Отсортированный методои Пузырька массив: ");
 Console.WriteLine(" ");
-Console.WriteLine("Измененный массив: ");
-Changr2DArr(arr2D);
-Print2DArr(arr2D);
+BubbleSort(arr2D);
+// Print2DArr(arr2D);
