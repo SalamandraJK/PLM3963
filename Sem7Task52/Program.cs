@@ -42,7 +42,6 @@ int[,] Gen2DArr( int min, int max, int RowCount, int ColCount)
     return binarray;
 }
 
-
 // Вводин метод, который печатает одномерный массив
 void Print2DArr(int[,] arr)
 {
@@ -69,7 +68,7 @@ void Print2DArr(int[,] arr)
 }
 
 // Вводин метод, который печатает одномерный массив
-void Print1DArr(double[] arr)
+void Print1DArr(int[] arr)
 {
     Console.Write("[");
 
@@ -82,14 +81,14 @@ void Print1DArr(double[] arr)
 }
 
 // Метод для посчета среднего арифметического значений каждого столбца сгенерированного массива
-double[] ColMean2DArr(int[,] arr)
+int[] ColMean2DArr(int[,] arr)
 {
-    double[] MeanArr = new double[arr.GetLength(1)];
+    int[] MeanArr = new int[arr.GetLength(1)];
     for(int j=0; j<arr.GetLength(1); j++)
     {
         for(int i=0; i<arr.GetLength(0); i++)
         {
-            MeanArr[j] += arr[i,j];
+            MeanArr[j] = MeanArr[j] + arr[i,j];
             MeanArr[j] = MeanArr[j]/arr.GetLength(0);
         }
     }
@@ -100,11 +99,9 @@ double[] ColMean2DArr(int[,] arr)
 int Row = ReadData("Введите колличество строк: ");
 int Column = ReadData("Введите колличество столбцов: ");
 // Генерация массива
-int[,] arr2D = Gen2DArr(10, 99, Row, Column);
+int[,] arr2D = Gen2DArr(0, 10, Row, Column);
 // Вывод(печать) массива
 Print2DArr(arr2D);
 Console.WriteLine(" ");
-// Генерация массива с выполненым условием
-ColMean2DArr(arr2D);
 // Вывод(печать) массива
 Print1DArr(ColMean2DArr(arr2D));
