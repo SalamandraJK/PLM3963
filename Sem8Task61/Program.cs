@@ -25,7 +25,7 @@ void PrintPascalTriangle(int nRow)
 {
     for(int i=0; i<nRow; i++)
     {
-        for(int k=0; k<(nRow)-i; k++)
+        for(int k=0; k<nRow-i; k++)
         {
             Console.Write(" ");
         }
