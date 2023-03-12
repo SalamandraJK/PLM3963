@@ -30,8 +30,6 @@ void PrintData(string res, double value)
     Console.WriteLine(res + value);
 }
 
-
-
 double MaxMin(double[] arr)
 {
     double minNum = double.MaxValue;
