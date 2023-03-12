@@ -1,21 +1,6 @@
-﻿// Задача №57
-// Составить частотный словарь элементов двумерного массива. 
-// Частотный словарь содержит информацию о том,
-// сколько раз встречается элемент входных данных.
+﻿// 
 
-// Вводин метод, который печатает одномерный массив
-void Print1DArr(int[] arr)
-{
-    Console.Write("[");
-
-    for(int i=0; i<arr.Length-1; i++)
-    {
-        Console.Write(arr[i] + ", ");
-    }
-    Console.Write(arr[arr.Length-1]);
-    Console.WriteLine("]");
-}
-
+// Метод удаления нужных строки и столбца
 // Метод, для приема данных
 int ReadData(string message)
 {
@@ -74,17 +59,45 @@ void Print2DArr(int[,] arr)
     }
 }
 
-int[] BuildFreqDic(int[,] arr, int length)
+// Метод нахождения минимального значения в сгенерированном массиве
+(int x, int y) SearchMinElementIn2Darr(int[,] martrizza)
 {
-    int[] dictionary = new int[length];
-    for (int i =0; i < arr.GetLength(0); i++)
+    int row = 0;
+    int collumn = 0;
+    int minimum = int.MaxValue;
+    for (int i = 0; i < martrizza.GetLength(0); i++)
     {
-        for (int j = 0; j< arr.GetLength(1); j++)
+        for (int j = 0; j < martrizza.GetLength(1); j++)
         {
-            dictionary[arr[i,j]]++;
+            minimum = martrizza[i,j];
+            row = i;
+            collumn = j;
         }
     }
-    return dictionary;
+    return (row, collumn);
+}
+
+// Метод удаления нужных строки и столбца
+int[,] Update2Darr(int[,] arr, int x, int y)
+{
+    int[,] result = new int[arr.GetLength(0)-1, arr.GetLength(1)-1];
+    int k = 0; 
+    int m = 0;
+
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        m = 0;
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            if(j!=x && i!=y)
+            {
+                result[k,m] = arr[i,j];
+            }
+            if(j!=y) m++;
+        }
+        if(i!=x) k++;
+    }
+    return result;
 }
 
 // Ввод параметров массива(строки с стлобцы)
@@ -97,6 +110,9 @@ int[,] arr2D = Gen2DArr(min, max, row, col);
 // Вывод(печать) массива
 Console.WriteLine("Сгенерированный массив: ");
 Print2DArr(arr2D);
+
 // Вывод полученного массива после выполнения задачи
 Console.WriteLine(" ");
-Print1DArr(BuildFreqDic(arr2D, max));
+(int x, int y) minElem = SearchMinElementIn2Darr(arr2D);
+int[,] out2Darr = Update2Darr(arr2D, minElem.x, minElem.y);
+Print2DArr(out2Darr);
