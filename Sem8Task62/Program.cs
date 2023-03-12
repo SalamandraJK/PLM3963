@@ -11,11 +11,16 @@ int ReadData(string message)
 // Метод генирации и заполнения массива по спирали
 int[,] SpiralArr (int x, int y)
 {
-    int[,] A = new int[x, y];
-int row = 0, col = 0, dx = 1, dy = 0, dirChanges = 0, gran = y;
-for (int i = 0; i < A.Length; i++)
+    int[,] arr = new int[x, y];
+    int row = 0; 
+    int col = 0;
+    int dx = 1;
+    int dy = 0;
+    int dirChanges = 0;
+    int gran = y;
+for (int i = 0; i < arr.Length; i++)
 {
-    A[col, row] = i + 1;
+    arr[col, row] = i + 1;
     if (--gran == 0)
         {
             gran = x * (dirChanges % 2) + y * ((dirChanges + 1) % 2) - (dirChanges / 2 - 1) - 2;
@@ -27,7 +32,7 @@ for (int i = 0; i < A.Length; i++)
     col += dx;
     row += dy;
 }
-return A;
+return arr;
 }
 
 // Метод печати массива
