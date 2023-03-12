@@ -87,12 +87,12 @@ int[] BuildFreqDic(int[,] arr, int length)
     return dictionary;
 }
 // Ввод параметров массива(строки с стлобцы)
-int m = ReadData("Введите колличество строк: ");
-int n = ReadData("Введите колличество столбцов: ");
+int row = ReadData("Введите колличество строк: ");
+int col = ReadData("Введите колличество столбцов: ");
 int min = ReadData("Введите минимальное значение: ");
 int max = ReadData("Введите максимальное значение: ");
 // Генерация массива
-int[,] arr2D = Gen2DArr(min, max, m, n);
+int[,] arr2D = Gen2DArr(min, max, row, col);
 // Вывод(печать) массива
 Console.WriteLine("Сгенерированный массив: ");
 Print2DArr(arr2D);
