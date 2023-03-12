@@ -87,39 +87,72 @@
 //             }
 // }
 
-int[,,] CreateMatrix (int row, int col, int dep, int min, int max) 
-{
-    int[,,] matrix = new int[row, col, dep];
-    Random rnd = new Random();   
-    for (int i = 0; i < matrix.GetLength(0); i++) 
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            for (int k = 0; k < matrix.GetLength(2); k++)
-                {
-                    matrix[i,j,k] = rnd.Next(min, max + 1);
-                }
-        }
-    }
-    return matrix;
-} 
+// int[,,] CreateMatrix (int row, int col, int dep, int min, int max) 
+// {
+//     int[,,] matrix = new int[row, col, dep];
+//     Random rnd = new Random();   
+//     for (int i = 0; i < matrix.GetLength(0); i++) 
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             for (int k = 0; k < matrix.GetLength(2); k++)
+//                 {
+//                     matrix[i,j,k] = rnd.Next(min, max + 1);
+//                 }
+//         }
+//     }
+//     return matrix;
+// } 
  
-void Print3DMatrix(int[,,] matrix)
-{
-    for (int i = 0; i <  matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++) 
-        {
-            for (int k = 0; k < matrix.GetLength(2); k++)
+// void Print3DMatrix(int[,,] matrix)
+// {
+//     for (int i = 0; i <  matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++) 
+//         {
+//             for (int k = 0; k < matrix.GetLength(2); k++)
+//             {
+//             Console.Write("|");
+//             Console.Write($"{matrix[i, j, k],1}({i},{j},{k})|"); 
+//             Console.WriteLine();           
+//             }
+//         }
+//         Console.WriteLine();        
+//     }        
+// }
+ 
+// int[,,] array3D = CreateMatrix(2, 2, 2, 10, 99);
+// Print3DMatrix(array3D);
+
+            int N = 4, M = 4;
+            int[,] A = new int[N, M];
+ 
+ 
+            int row = 0, col = 0, dx = 1, dy = 0, dirChanges = 0, gran = M;
+ 
+            for (int i = 0; i < A.Length; i++)
             {
-            Console.Write("|");
-            Console.Write($"{matrix[i, j, k],1}({i},{j},{k})|"); 
-            Console.WriteLine();           
+                A[col, row] = i + 1;
+                if (--gran == 0)
+                {
+                    gran = M * (dirChanges % 2) + N * ((dirChanges + 1) % 2) - (dirChanges / 2 - 1) - 2;
+                    int temp = dx;
+                    dx = -dy;
+                    dy = temp;
+                    dirChanges++;
+                }
+                col += dx;
+                row += dy;
             }
-        }
-        Console.WriteLine();        
-    }        
-}
  
-int[,,] array3D = CreateMatrix(2, 2, 2, 10, 99);
-Print3DMatrix(array3D);
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < M; j++)
+                {
+                    Console.Write(A[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+ 
+ 
+            Console.ReadKey();
