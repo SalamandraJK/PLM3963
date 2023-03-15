@@ -10,17 +10,17 @@ int ReadData(string line)
     return number;
 }
 
-void LineGenRec(int num)
+void LineGenRec(int num, int Perm)
 {
-    Console.Write($"{ num }, ");
-    if(num == 1)
+    Console.Write(Perm + " ");
+    if(Perm >= num)
     {
     }
     else
     {
-        LineGenRec(num - 1);
+        LineGenRec(num, Perm + 1);
     }
 }
 
 int number = ReadData("Введите число N: ");
-LineGenRec(number);
+LineGenRec(number, 1);
